@@ -11,18 +11,29 @@ public extension View {
 
     private func addToast<Content: View>(isActive: Binding<Bool>,
                                  padding: CGFloat = 10,
-                                 defaultOffset: CGFloat = 0,
                                  position: ToastPosition = .bottom,
                                  content: @escaping () -> Content) -> some View {
+        
         ZStack(alignment: position.alignment) {
             self
-            ToastView(
-                isActive: isActive,
-                padding: padding,
-                defaultOffset: defaultOffset,
-                edge:  position == .top ? .top : .bottom,
-                content: { _ in content() }
-            )
+            if position == .top{
+                ToastView(
+                    isActive: isActive,
+                    padding: padding,
+                    defaultOffset: -100,
+                    edge: .top,
+                    content: { _ in content() }
+                )
+            }else{
+                ToastView(
+                    isActive: isActive,
+                    padding: padding,
+                    defaultOffset: 100,
+                    edge: .bottom,
+                    content: { _ in content() }
+                )
+            }
+
         }
     }
     ///添加Toast
@@ -30,7 +41,6 @@ public extension View {
         self.addToast(
             isActive: ob.isActiveBinding,
             padding: ob.padding,
-            defaultOffset: ob.defaultOffset,
             position: ob.position,
             content: { ob.content }
         )
@@ -44,18 +54,7 @@ public class ToastManager: ObservableObject {
     //Toast停留时长
     public var duration: TimeInterval = 3
     //Toast显示位置
-    public var position: ToastPosition = .bottom{
-        didSet{
-            switch position {
-            case .top:
-                defaultOffset = -200
-            case .bottom:
-                defaultOffset = 200
-            }
-        }
-    }
-    
-    var defaultOffset: CGFloat = 0
+    public var position: ToastPosition = .bottom
     //Toast距离屏幕边缘
     public var padding: CGFloat = 10
     
