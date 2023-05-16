@@ -1,0 +1,6 @@
+framework module Toast_SwiftUI {
+  umbrella header "Toast_SwiftUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

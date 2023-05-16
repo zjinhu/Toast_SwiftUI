@@ -1,0 +1,16 @@
+PODS:
+  - Toast_SwiftUI (0.1.0)
+
+DEPENDENCIES:
+  - Toast_SwiftUI (from `../`)
+
+EXTERNAL SOURCES:
+  Toast_SwiftUI:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Toast_SwiftUI: 0fd10846b9aa94914a26d0505cc53cec47f4ebf9
+
+PODFILE CHECKSUM: 5cdd48bb8cc58ae7ef2e464eefb5649a31f762a0
+
+COCOAPODS: 1.12.1
