@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
-
+import Toast_SwiftUI
 @main
 struct ExampleApp: App {
+    @StateObject var ob = ToastManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ob)
         }
     }
 }

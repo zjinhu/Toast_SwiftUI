@@ -20,6 +20,7 @@ public extension View {
                 isActive: isActive,
                 padding: padding,
                 defaultOffset: defaultOffset,
+                edge:  position == .top ? .top : .bottom,
                 content: { _ in content() }
             )
         }
