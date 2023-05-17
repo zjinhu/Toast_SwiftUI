@@ -31,10 +31,8 @@ public struct ToastView<Content: View>: View {
     public var body: some View {
         content(isActive)
             .animation(.spring())
-            .offset(y: offset)
-            .transition(.move(edge: edge))
+            .offset(y: !isActive ? offset : -offset)
             .padding(.vertical, padding)
-            .opacity(!isActive ? 0 : 1)
     }
 }
 

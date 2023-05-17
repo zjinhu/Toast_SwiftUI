@@ -18,7 +18,7 @@ public struct MessageView: View {
             .background(
                 Color.black
                     .opacity(0.8)
-                    .cornerRadius(8)
+                    .cornerRadius(10)
             )
     }
 }

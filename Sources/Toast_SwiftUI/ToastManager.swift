@@ -20,7 +20,7 @@ public extension View {
                 ToastView(
                     isActive: isActive,
                     padding: padding,
-                    defaultOffset: -100,
+                    defaultOffset: -200,
                     edge: .top,
                     content: { _ in content() }
                 )
@@ -28,7 +28,7 @@ public extension View {
                 ToastView(
                     isActive: isActive,
                     padding: padding,
-                    defaultOffset: 100,
+                    defaultOffset: 200,
                     edge: .bottom,
                     content: { _ in content() }
                 )
