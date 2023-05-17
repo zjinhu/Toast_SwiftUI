@@ -45,6 +45,12 @@ extension ToastManager {
     @StateObject var toast = ToastManager()
 ```
 
+页面内添加控制器
+
+```swift
+.addToast(toast)
+```
+
 控制Toast弹出的位置，然后调用show方法即可
 
 ```swift
