@@ -8,34 +8,6 @@
 import SwiftUI
 
 public extension View {
-
-    private func addToast<Content: View>(isActive: Binding<Bool>,
-                                 padding: CGFloat = 10,
-                                 position: ToastPosition = .bottom,
-                                 content: @escaping () -> Content) -> some View {
-        
-        ZStack(alignment: position.alignment) {
-            self
-            if position == .top{
-                ToastView(
-                    isActive: isActive,
-                    padding: padding,
-                    defaultOffset: -200,
-                    edge: .top,
-                    content: { _ in content() }
-                )
-            }else{
-                ToastView(
-                    isActive: isActive,
-                    padding: padding,
-                    defaultOffset: 200,
-                    edge: .bottom,
-                    content: { _ in content() }
-                )
-            }
-
-        }
-    }
     ///添加Toast
     func addToast(_ ob: ToastManager) -> some View {
         self.addToast(
@@ -47,34 +19,51 @@ public extension View {
     }
 }
 
+extension ToastManager {
+    //展示自定义View//自己可以重写替换
+    public func showText(_ text: String){
+        show {
+            MessageView(text: text)
+        }
+    }
+}
+
 public class ToastManager: ObservableObject {
     public init() {}
-    public typealias Action = () -> Void
-    private var presentationId = UUID()
-    //Toast停留时长
+    
+    
+    ///Toast停留时长
     public var duration: TimeInterval = 3
-    //Toast显示位置
+    ///Toast显示位置
     public var position: ToastPosition = .bottom
-    //Toast距离屏幕边缘
+    ///Toast距离屏幕边缘
     public var padding: CGFloat = 10
     
-    @Published
-    public var content = AnyView(EmptyView())
     
-    @Published
-    public var isActive = false
+    
+    
+    typealias Action = () -> Void
 
-    public var isActiveBinding: Binding<Bool> {
+    private var presentationId = UUID()
+    
+    @Published var content = AnyView(EmptyView())
+    
+    @Published var isActive = false
+
+    var isActiveBinding: Binding<Bool> {
         .init(get: { self.isActive },
               set: { self.isActive = $0 }
         )
     }
+
+}
+extension ToastManager {
     ///隐藏Toast
-    public func dismiss() {
+    func dismiss() {
         dismiss {}
     }
     ///隐藏Toast,有回调
-    public func dismiss(completion: @escaping Action) {
+    func dismiss(completion: @escaping Action) {
         guard isActive else { return completion() }
         isActive = false
         perform(after: 0.3, action: completion)
@@ -91,17 +80,20 @@ public class ToastManager: ObservableObject {
     }
 }
 
-extension ToastManager {
-    //展示自定义View//自己可以重写替换
-    public func showText(_ text: String){
-        show {
-            MessageView(text: text)
+public enum ToastPosition {
+    
+    case top, bottom
+    
+    public var alignment: Alignment {
+        switch self {
+        case .top: return .top
+        case .bottom: return .bottom
         }
     }
 }
 
 private extension ToastManager {
-    
+
     func perform(_ action: @escaping Action,
                  after seconds: TimeInterval) {
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: action)
@@ -127,17 +119,34 @@ private extension ToastManager {
     func setActive() {
         isActive = true
     }
-
 }
 
-public enum ToastPosition {
-    
-    case top, bottom
-    
-    public var alignment: Alignment {
-        switch self {
-        case .top: return .top
-        case .bottom: return .bottom
+extension View {
+
+    private func addToast<Content: View>(isActive: Binding<Bool>,
+                                 padding: CGFloat = 10,
+                                 position: ToastPosition = .bottom,
+                                 content: @escaping () -> Content) -> some View {
+        
+        ZStack(alignment: position.alignment) {
+            self
+            if position == .top{
+                ToastView(
+                    isActive: isActive,
+                    padding: padding,
+                    defaultOffset: -200,
+                    content: { _ in content() }
+                )
+            }else{
+                ToastView(
+                    isActive: isActive,
+                    padding: padding,
+                    defaultOffset: 200, 
+                    content: { _ in content() }
+                )
+            }
+
         }
     }
+ 
 }

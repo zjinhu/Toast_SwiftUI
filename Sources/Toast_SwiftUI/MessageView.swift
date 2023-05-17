@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-public struct MessageView: View {
+struct MessageView: View {
     
-    public var text: String
+    var text: String
     
-    public var body: some View {
+    var body: some View {
         Text(text)
             .padding(10)
             .foregroundColor(.white)

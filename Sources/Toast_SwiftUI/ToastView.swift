@@ -7,36 +7,33 @@
 
 import SwiftUI
 
-public struct ToastView<Content: View>: View {
+struct ToastView<Content: View>: View {
     
-    public init(isActive: Binding<Bool>,
+    init(isActive: Binding<Bool>,
                 padding: CGFloat = 10,
                 defaultOffset: CGFloat = 0,
-                edge: Edge = .top,
                 @ViewBuilder content: @escaping ContentBuilder) {
         _isActive = isActive
         self.padding = padding
         self.defaultOffset = defaultOffset
-        self.content = content
-        self.edge = edge
+        self.content = content 
     }
     
-    public typealias ContentBuilder = (_ isActive: Bool) -> Content
+    typealias ContentBuilder = (_ isActive: Bool) -> Content
     private let content: ContentBuilder
     private let defaultOffset: CGFloat
     private let padding: CGFloat
-    private let edge: Edge
     @Binding private var isActive: Bool
     
-    public var body: some View {
+    var body: some View {
         content(isActive)
             .animation(.spring())
             .offset(y: !isActive ? offset : -offset)
-            .padding(.vertical, padding)
+            .padding(.horizontal, padding)
     }
 }
 
-private extension ToastView {
+extension ToastView {
     
     var offset: CGFloat {
         if isActive { return 0 }

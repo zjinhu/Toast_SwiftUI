@@ -1,17 +1,72 @@
 # Toast_SwiftUI
 
-
 [![SPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager/)
 ![Xcode 14.0+](https://img.shields.io/badge/Xcode-14.0%2B-blue.svg)
 ![iOS 14.0+](https://img.shields.io/badge/iOS-14.0%2B-blue.svg)
 ![Swift 5.0+](https://img.shields.io/badge/Swift-5.0%2B-orange.svg)
 ![SwiftUI 3.0+](https://img.shields.io/badge/SwiftUI-3.0%2B-orange.svg)
 
+| ![](Image/toast.png) | ![](Image/toast2.png) |
+| -------------------- | --------------------- |
+
+
+
 ## 例子
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Toast_SwiftUI内置了一个纯文本toast，只需要toast.showText即可使用
 
-## 要求
+```swift
+toast.showText("Toast at bottom")
+
+```
+
+也可以自定义你自己的Toast样式，无任何侵入，无继承，完全原生，只需要扩展一下控制器的方法就可以，[详见CustomView](https://github.com/jackiehu/Toast_SwiftUI/blob/main/Example/Toast_SwiftUI/CustomView.swift)
+
+```swift
+extension ToastManager {
+    //展示自定义View//自己可以重写替换
+    public func showCustom(){
+        show {
+            CustomView()
+        }
+    }
+}
+```
+
+
+
+## 用法
+
+在需要弹出Toast的页面创建控制器
+
+```swift
+    @EnvironmentObject private var toast: ToastManager
+    //OR
+    @StateObject var toast = ToastManager()
+```
+
+控制Toast弹出的位置，然后调用show方法即可
+
+```swift
+toast.position = .bottom
+```
+
+```
+toast.showText("Toast at bottom")
+```
+
+控制器
+
+```swift
+    ///Toast停留时长
+    public var duration: TimeInterval = 3
+    ///Toast显示位置
+    public var position: ToastPosition = .bottom
+    ///Toast距离屏幕边缘
+    public var padding: CGFloat = 10
+```
+
+
 
 
 ## 安装

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Toast_SwiftUI'
-  s.version          = '0.0.2'
+  s.version          = '0.1.0'
   s.summary          = 'A short description of Toast_SwiftUI.'
 
 # This description is used to generate tags and improve search results.
@@ -34,16 +34,5 @@ TODO: Add long description of the pod here.
   #s.frameworks   = "UIKit", "Foundation", "SwiftUI" #支持的框架
   
   s.source_files = 'Sources/Toast_SwiftUI/**/*'
-  
-  #文件路径
-  #s.subspec 'In' do |ss|
-  #  ss.source_files = 'Code/*.swift'
-  #end
-  
-  #资源包
-  #s.resource_bundles = {
-  #  'Toast_SwiftUI' => ['Sources/Resource/*']
-  #}
 
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
