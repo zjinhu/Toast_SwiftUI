@@ -25,7 +25,7 @@ toast.showText("Toast at bottom")
 ```swift
 extension ToastManager {
     //展示自定义View//自己可以重写替换
-    public func showCustom(){
+   func showCustom(){
         show {
             CustomView()
         }
@@ -81,7 +81,7 @@ toast.showText("Toast at bottom")
 
 ### Swift Package Manager
 
-从 Xcode 11 开始，集成了 Swift Package Manager，使用起来非常方便。SwiftMediator 也支持通过 Swift Package Manager 集成。
+从 Xcode 11 开始，集成了 Swift Package Manager，使用起来非常方便。Toast_SwiftUI 也支持通过 Swift Package Manager 集成。
 
 在 Xcode 的菜单栏中选择 `File > Swift Packages > Add Pacakage Dependency`，然后在搜索栏输入
 
