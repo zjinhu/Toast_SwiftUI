@@ -9,18 +9,18 @@
 | ![](Image/toast.png) | ![](Image/toast2.png) |
 | -------------------- | --------------------- |
 
+## [中文说明](https://github.com/jackiehu/Toast_SwiftUI/blob /main/README_ZH.md)
 
+## Example
 
-## 例子
-
-Toast_SwiftUI内置了一个纯文本toast，只需要toast.showText即可使用
+Toast_SwiftUI has a built-in plain text toast, which can be used only by toast.showText
 
 ```swift
 toast.showText("Toast at bottom")
 
 ```
 
-也可以自定义你自己的Toast样式，无任何侵入，无继承，完全原生，只需要扩展一下控制器的方法就可以，[详见CustomView](https://github.com/jackiehu/Toast_SwiftUI/blob/main/Example/Toast_SwiftUI/CustomView.swift)
+You can also customize your own Toast style, no intrusion, no inheritance, completely native, just need to expand the method of the controller, [see CustomView for details](https://github.com/jackiehu/Toast_SwiftUI/blob /main/Example/Toast_SwiftUI/CustomView.swift)
 
 ```swift
 extension ToastManager {
@@ -35,9 +35,9 @@ extension ToastManager {
 
 
 
-## 用法
+## Usage
 
-在需要弹出Toast的页面创建控制器
+Create a controller on the page that needs to pop up Toast
 
 ```swift
     @EnvironmentObject private var toast: ToastManager
@@ -45,13 +45,13 @@ extension ToastManager {
     @StateObject var toast = ToastManager()
 ```
 
-页面内添加控制器
+Add a controller to the page
 
 ```swift
 .addToast(toast)
 ```
 
-控制Toast弹出的位置，然后调用show方法即可
+Control the position where Toast pops up, and then call the show method
 
 ```swift
 toast.position = .bottom
@@ -61,7 +61,7 @@ toast.position = .bottom
 toast.showText("Toast at bottom")
 ```
 
-控制器
+controller
 
 ```swift
     ///Toast停留时长
@@ -75,62 +75,47 @@ toast.showText("Toast at bottom")
 
 
 
-## 安装
+## Install
 
 ### cocoapods
 
-1.在 Podfile 中添加 `pod 'Toast_SwiftUI'`
+1. Add `pod 'Toast_SwiftUI'` in Podfile
 
-2.执行 `pod install 或 pod update`
+2. Execute `pod install or pod update`
 
-3.导入 `import Toast_SwiftUI`
+3. Import `import Toast_SwiftUI`
 
 ### Swift Package Manager
 
-从 Xcode 11 开始，集成了 Swift Package Manager，使用起来非常方便。Toast_SwiftUI 也支持通过 Swift Package Manager 集成。
+Starting from Xcode 11, the Swift Package Manager is integrated, which is very convenient to use. Toast_SwiftUI also supports integration via Swift Package Manager.
 
-在 Xcode 的菜单栏中选择 `File > Swift Packages > Add Pacakage Dependency`，然后在搜索栏输入
+Select `File > Swift Packages > Add Pacakage Dependency` in Xcode's menu bar, and enter in the search bar
 
-`https://github.com/jackiehu/Toast_SwiftUI`，即可完成集成
+`https://github.com/jackiehu/Toast_SwiftUI`, you can complete the integration
 
-### 手动集成
+### Manual Install
 
-Toast_SwiftUI 也支持手动集成，只需把Sources文件夹中的SwiftMediator文件夹拖进需要集成的项目即可
+Toast_SwiftUI also supports manual Install, just drag the Toast_SwiftUI folder in the Sources folder into the project that needs to be installed
 
 
-## 作者
+## Author
 
 jackiehu, 814030966@qq.com
 
-## 更多砖块工具加速APP开发
+## More brick tools to speed up APP development
 
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftMediator&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftMediator)
 
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftBrick&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftBrick)
 
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftShow&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftShow)
-
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftLog&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftLog)
-
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftyForm&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftyForm)
-
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftEmptyData&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftEmptyData)
-
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftPageView&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftPageView)
-
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=JHTabBarController&theme=radical&locale=cn)](https://github.com/jackiehu/JHTabBarController)
 
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftMesh&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftMesh)
 
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftNotification&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftNotification)
 
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftNetSwitch&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftNetSwitch)
-
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftButton&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftButton)
-
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftDatePicker&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftDatePicker)
 
 
-## 许可
+license
 
 Toast_SwiftUI is available under the MIT license. See the LICENSE file for more info.
