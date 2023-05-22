@@ -9,7 +9,7 @@
 | ![](Image/toast.png) | ![](Image/toast2.png) |
 | -------------------- | --------------------- |
 
-## [中文说明](https://github.com/jackiehu/Toast_SwiftUI/blob /main/README_ZH.md)
+## [中文说明](https://github.com/jackiehu/Toast_SwiftUI/blob/main/README_ZH.md)
 
 ## Example
 
